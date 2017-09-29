@@ -1,0 +1,52 @@
+1. How you boosted the score in Part 1(d) above the vanilla performance?
+
+First, by adding:
+    'UNI-' + first_character
+    'BI-'  + first_character + second_character
+    'TRI-' + first_character + second_character + third_character
+the result reaches to 0.71347.
+
+Then, adding the followings:
+    'QUAD-'  + first_character + second_character + third_character + forth_character
+    'QUINT-' + first_character + second_character + third_character + forth_character + fifth_character
+the result reaches to 0.84081.
+
+However, by adding extra feature in such format reduces the accuracy.
+
+Secondly, by adding regex such as:
+    String name_filter = "^The | (?:(?i)Inc|Co|Corp|Corporation|Company|Ltd|Limited|Trust|Plc)\\.?$";
+For each entry, it picks up word that matches the filter and add feature count by one.
+
+Thirdly, taking the length and number of words into account:
+    By considering the number of words, a single word usually refers to a place name, an entry that has two or three words usually means a person, an entry that has more than three is most likely to be a company's name.
+    This improves the accuracy above 0.85.
+
+In addition to roughly matach a possible person's name, an out source file under /other/names.txt is read in, which contains a list of most commonly appeared names in English.
+However, by adding such external name dictionary does not help, rather lower down the accuracy by ~0.1.
+
+Finaly, considering the length of a word:
+    if a phrase has more than 16 characters, it tends to be complicated drug names.
+
+
+The final best accuracy is 0.87798.
+
+
+
+
+2. What errors remain in your best classifier and why?
+
+As the perceptron classifier has not been implemented with multiple iterations, the best classifier so far is the Maxent, which has an 0.87798 accuracy.
+There are couple of things need to be improved:
+- Entries that contains specific drug terms can be analyzed so as to create a regex filter for the matching.
+- The EPS value in LBFGSMinimizer can be optimized so as to allow more iterations.
+- Features that may have overlapped should be concatenated together. i.e., an entry that has two words of length more than 12 is more likely to be a drug's name, yet an entry of two words of length less than 8 is more likely to be a person's name.
+
+TODO:
+a. Refactor the PerceptronClassifier
+b. Refactor the calculate function
+
+
+3. Dev set accuracies for your maximum entropy model and perceptron.
+
+Dev maxent:         0.8779813342550985
+Dev perceptron:     0.8216384376080194
