@@ -1,0 +1,82 @@
+HW4 Result:
+
+Raw code base:
+
+baseline:
+	miniTest:
+		Precision: 0.8888888888888888
+		Recall: 0.8888888888888888
+		AER: 0.11111111111111116
+	validate:
+		Precision: 0.3348909657320872
+		Recall: 0.19822485207100593
+		AER: 0.7122448979591837
+
+IBM1
+	miniTest:
+		Precision: 0.7272727272727273
+		Recall: 0.8888888888888888
+		AER: 0.19999999999999996
+		union:
+			Precision: 1.0
+			Recall: 0.8888888888888888
+			AER: 0.05882352941176472
+		intersect:
+			Precision: 1.0	
+			Recall: 0.8888888888888888
+			AER: 0.05882352941176472
+		sentences 10000:
+			Precision: 0.7272727272727273
+			Recall: 0.8888888888888888
+			AER: 0.19999999999999996
+
+	validate:
+		Precision: 0.3160377358490566
+		Recall: 0.3254437869822485
+		AER: 0.6806981519507187
+		intersect:
+			Precision: 0.6875
+			Recall: 0.23668639053254437
+			AER: 0.6184738955823292
+		union:
+			Precision: 0.6875
+			Recall: 0.23668639053254437
+			AER: 0.6184738955823292
+		sentences 10000:
+			Precision: 0.596989966555184
+			Recall: 0.6982248520710059
+			AER: 0.3664529914529915
+
+IBM2
+	miniTest:
+		Precision: 0.8181818181818182
+		Recall: 1.0
+		AER: 0.09999999999999998
+		union:
+			Precision: 1.0
+			Recall: 1.0
+			AER: 0.0
+		intersect:
+			Precision: 1.0
+			Recall: 1.0
+			AER: 0.0
+		sentences 10000:
+			Precision: 0.8181818181818182
+			Recall: 1.0
+			AER: 0.09999999999999998
+	validate:
+		Precision: 0.5319148936170213
+		Recall: 0.5473372781065089
+		AER: 0.46285140562248994
+		intersect:
+			Precision: 0.6544943820224719
+			Recall: 0.4526627218934911
+			AER: 0.4438040345821326
+		union:
+			Precision: 0.6544943820224719
+			Recall: 0.4526627218934911
+			AER: 0.4438040345821326
+		sentences 10000:
+			Precision: 0.6586151368760065
+			Recall: 0.7662721893491125
+			AER: 0.30344108446298224
